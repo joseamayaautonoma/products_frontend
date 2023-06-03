@@ -1,8 +1,10 @@
+import { Outlet } from 'react-router-dom';
 import './MyApp.css';
 import { Counter } from './components/Counter';
 import { NavBar } from './components/NavBar';
 import { Product } from './components/Product';
 import { Profile } from './components/Profile';
+import { Toaster } from 'react-hot-toast';
 
 
 const products = ['Mango', 'Manzana', 'Piña', 'Pera', 'Uva'];
@@ -24,7 +26,7 @@ export const MyApp = () => {
     return ( 
         <div className="container" >
             <NavBar />
-            <div className="row">
+            {/* <div className="row">
                 <div className="col-md-5">
                     <Profile user={ user } />
                 </div>
@@ -41,7 +43,14 @@ export const MyApp = () => {
                         }
                     </div>
                 </div>
+            </div> */}
+            <div className="row">
+                <div className="col-md-12">
+                    <Outlet />
+                </div>
             </div>
+
+            <Toaster />
         </div>
     );
 }
